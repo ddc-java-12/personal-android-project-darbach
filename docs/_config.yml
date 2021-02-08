@@ -8,10 +8,10 @@ titles_from_headings:
 
 # Modify the contents below for the specific project.
 
-title: "Android Project Proposal"
-description: "Trust me, it'll be cool!"
+title: "Dice Crunch"
+description: "A dice-rolling calculator for your tabletop games!"
 author:
-  name: "Java+Android Student"
+  name: "Daniel Arbach"
 
 # Do not change the following line.
   copyright: true

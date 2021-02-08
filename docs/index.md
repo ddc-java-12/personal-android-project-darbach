@@ -1,35 +1,49 @@
 ## Summary
 
-Replace this paragraph with one or more paragraphs summarizing the purpose and operation of the Android app you propose to develop in this project.
+Dice Crunch provides players the ability to simulate polyhedral dice rolls with a variety of useful math operatoions. Create formula for multiple dice, add, subtract, drop the lowest roll, and more! Save dice formulas that you want to use often for quick access.
 
 ## Intended users
 
-Write a bullet list here, including at least 2 different types of intended users. Make it reasonably specific; simply saying "Anyone who likes games" (for example) is not sufficiently specific.
+* Role-playing gamers who want to speed up play by pre-creating formula for their characters
 
-For each type of intended user, include at least 1 _user story_. A user story is usually just 1 simple sentence (no more than 2 sentences), in the voice of the intended user, stating a specific task that the user needs to perform, and the benefit that will be obtained. The simplest user stories take the form 
+> As a game master I want to streamline the dice-rolling of my encounters so that players aren't waiting on me. Some of my story encounters involve a lot of abilities, and I save these rolls during my preparation time so I don't have to look it up later.
 
-> As a <type of intended user (_who_)> I want to <goal (_what_)> so that <benefit (_why_).
+* Players who play dice-based games remotely but don't want to keep all the dice they might need
 
-Please avoid writing too much for the user story. In particular, if the way the user story is written makes it difficult to see the _who_, _what_, and _why_, then you probably need to re-write it more directly. (On the other hand, a user story should not simply be a re-statement of the intended user description.)
-
-Here is one (silly) example of an intended user, along with a user story. Please note not only the conceptual structure, but the Markdown syntax used.
-
-* People who like to use randomness in their decision making.
-
-    > As someone who enjoys randomness in my life, I need an app that lets me flip a virtual coin or roll one or more virtual dice, so that I can base my decisions on randomness, without having to carry coins or dice in my pockets.
+> As an avid boardgame player, I want to play with my friends over Zoom, but we don't all have dice that work with every game we play. Dice Crunch allows us each to create custom dice so we can play all of our favorite boardgames.
 
 ## Functionality
 
-List (using a bullet list---or ordered list, if order is relevant) the key functional aspects that will be provided by the app---i.e. tell us what the user will be able to do using the app. This should not simply be a re-statement of the [summary](#summary), but should instead provide a more specific articulation of the functionality and user experience. 
+* Write formula that simulate dice rolls
+* Display calculator-style buttons to enter formula (e.g. 2d6+3 is roll two six-sided dice and add three)
+* Supports addition, subtraction, multiplication, and division
+* Use odd or impossible polyhedral dice (e.g. 7-sided dice) 
+* Decimal results truncated after a few places so users can choose to round up or down
+* Drop highest and drop lowest rolls with all results still displayed
+* Perform multiple rolls at the same time
+* Save rolls with descriptive names for quick access
+* Create custom dice for games with non-numbered dice (e.g. "skull", "shield", etc.)
+* Create subfolder structure to organize for different games and characters
+* Supports copy/pasting formula into calculator screen to share with friends
+* Displays result history for the session
+* Repeat any roll in the history display
+* Displays formula roll history from previous sessions
 
 ## Persistent data
 
-List, in general terms and using a bullet list, what content will be stored on the Android device. This should include any information that users of your app would expect to be maintained (i.e. without connection to a server) across multiple sessions of use. 
-    
+* Subfolder structure
+* Formula strings with
+* Custom dice
+* Formula history
+
 ## Device/external services
 
-If the client component will need to access special services of the device (e.g. sensors, contacts, messaging), list them here using a bullet list. Also, if the client component will need to access already-existing external services (e.g. real-time weather data, Open Movie Database, Open Trivia Database), those should also be listed here; any such references to external services should include links to the main page or API description page for the service.
+* N/A
 
-## Stretch goals/possible enhancements 
+## Stretch goals/possible enhancements
 
-If you can identify functional elements of the software that you think might not be achievable in the scope of the project, but which would nonetheless add significant value if you were able to include them, list them here. For now, we recommend listing them in order of complexity/amount of work, from the least to the most.
+* Dark and light themes
+* Sharing roll results and formula names through group text
+* Shareable user-custom themes
+* Create a private "chatroom" session with other users that automatically displays the results of your dice rolls and the names of formulae, if present.
+* Integration with a virtual tabletop like Roll20 or Fantasy Grounds (if possible)

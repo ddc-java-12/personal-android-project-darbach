@@ -4,7 +4,7 @@ Dice Crunch provides players the ability to simulate polyhedral dice rolls with 
 
 ## Intended users
 
-* Role-playing gamers who want to speed up play by pre-creating formula for their characters
+* Role-playing gamers who want to speed up play
 
 > As a game master I want to streamline the dice-rolling of my encounters so that players aren't waiting on me. Some of my story encounters involve a lot of abilities, and I save these rolls during my preparation time so I don't have to look it up later.
 
@@ -22,12 +22,15 @@ Dice Crunch provides players the ability to simulate polyhedral dice rolls with 
 * Drop highest and drop lowest rolls with all results still displayed
 * Perform multiple rolls at the same time
 * Save rolls with descriptive names for quick access
-* Create custom dice for games with non-numbered dice (e.g. "skull", "shield", etc.)
+* Create custom dice for games with non-numbered dice (e.g. "skull", "shield", etc.). Initially, only available for text-based results.
 * Create subfolder structure to organize for different games and characters
 * Supports copy/pasting formula into calculator screen to share with friends
-* Displays result history for the session
+* Displays result history for the session, automatically loading a limited number of most recent rolls. User can go back in history by continuing to scroll. 
 * Repeat any roll in the history display
 * Displays formula roll history from previous sessions
+* Grammar for interpreted parsed dice-rolling language
+* Regex parser for input validation
+* Animation screen with sound for standard dice (d4, d6, d8, d10, d12, d20, d100)
 
 ## Persistent data
 
@@ -38,11 +41,12 @@ Dice Crunch provides players the ability to simulate polyhedral dice rolls with 
 
 ## Device/external services
 
-* N/A
+* Accelerometer
 
 ## Stretch goals/possible enhancements
 
 * Dark and light themes
+* Animated custom dice with user-loaded images
 * Sharing roll results and formula names through group text
 * Shareable user-custom themes
 * Create a private "chatroom" session with other users that automatically displays the results of your dice rolls and the names of formulae, if present.

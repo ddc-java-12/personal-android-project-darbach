@@ -42,6 +42,9 @@ Dice Crunch provides players the ability to simulate polyhedral dice rolls with 
 ## Device/external services
 
 * Accelerometer
+  * [Documentation](https://developer.android.com/guide/topics/sensors/sensors_motion)
+  * Gently flick phone to active a graphical dice-rolling screen
+  * If device service unavailable, app will limit user to the text-based fragments
 
 ## Stretch goals/possible enhancements
 

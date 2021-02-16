@@ -1,6 +1,12 @@
+---
+title: Overview
+description: Project summary and intended users
+menu: Overview
+order: 0
+---
 ## Summary
 
-Dice Crunch provides players the ability to simulate polyhedral dice rolls with a variety of useful math operatoions. Create formula for multiple dice, add, subtract, drop the lowest roll, and more! Save dice formulas that you want to use often for quick access.
+**Dice Crunch** provides players the ability to simulate polyhedral dice rolls with a variety of useful math operatoions. Create formula for multiple dice, add, subtract, drop the lowest roll, and more! Save dice formulas that you want to use often for quick access.
 
 ## Intended users
 

@@ -4,7 +4,7 @@ repository_links:
 page_navigator:
   enabled: true
 titles_from_headings:
-  enabled:false
+  enabled: false
 
 # Modify the contents below for the specific project.
 
@@ -12,6 +12,7 @@ title: "Dice Crunch"
 description: "A dice-rolling calculator for your tabletop games!"
 author:
   name: "Daniel Arbach"
+  email: darbach@cnm.edu
 
 # Do not change the following line.
   copyright: true

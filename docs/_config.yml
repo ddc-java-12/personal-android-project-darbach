@@ -3,8 +3,8 @@ repository_links:
   enabled: true
 page_navigator:
   enabled: true
-titles_from_headings: true
-  enabled: false
+titles_from_headings:
+  enabled:false
 
 # Modify the contents below for the specific project.
 

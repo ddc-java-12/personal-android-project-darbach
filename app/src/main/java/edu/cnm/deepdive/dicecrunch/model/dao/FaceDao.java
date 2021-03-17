@@ -1,0 +1,35 @@
+package edu.cnm.deepdive.dicecrunch.model.dao;
+
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+import edu.cnm.deepdive.dicecrunch.model.entity.Face;
+import io.reactivex.Single;
+import java.util.Collection;
+import java.util.List;
+
+@Dao
+public interface FaceDao {
+
+  @Insert
+  Single<Long> insert(Face face);
+
+  @Update
+  Single<Integer> update(Face face);
+
+  @Delete
+  Single<Integer> delete(Face face);
+
+  @Delete
+  Single<Integer> delete(Face... face);
+
+  @Delete
+  Single<Integer> delete(Collection<Face> face);
+
+  @Query("SELECT * FROM Face ORDER BY name ASC")
+  LiveData<List<Face>> selectAll();
+
+}

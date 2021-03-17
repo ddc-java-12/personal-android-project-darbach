@@ -1,17 +1,21 @@
 package edu.cnm.deepdive.dicecrunch.model.entity;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import java.util.Date;
 
 @Entity
-public class Dice {
+public class Die {
 
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "spin_id")
   private long id;
+
+  private Date created;
+
+  @ColumnInfo(index = true)
+  private Date updated;
 
   @ColumnInfo(index = true)
   private String name;

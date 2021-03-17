@@ -10,8 +10,8 @@ import androidx.room.PrimaryKey;
 @Entity(
     foreignKeys = {
         @ForeignKey(
-            entity = Dice.class,
-            parentColumns = "dice_id", childColumns = "dice_id",
+            entity = Die.class,
+            parentColumns = "die_id", childColumns = "die_id",
             onDelete = ForeignKey.CASCADE
         )
     }
@@ -22,20 +22,20 @@ public class Formula {
   @ColumnInfo(name = "formula_id")
   private long id;
 
-  @ColumnInfo(name = "dice_id", index = true)
-  private long diceId;
-
+  @ColumnInfo(index = true)
   private String name;
 
   private String formula;
 
   private String save_path;
 
+  @ColumnInfo(name = "die_id", index = true)
+  private long dieId;
 
   @SuppressWarnings("NotNullFieldNotInitialized")
   @NonNull
   @Ignore
-  private Dice dice;
+  private Die die;
 
   public long getId() {
     return id;
@@ -43,14 +43,6 @@ public class Formula {
 
   public void setId(long id) {
     this.id = id;
-  }
-
-  public long getDiceId() {
-    return diceId;
-  }
-
-  public void setDiceId(long diceId) {
-    this.diceId = diceId;
   }
 
   public String getName() {
@@ -77,12 +69,20 @@ public class Formula {
     this.save_path = save_path;
   }
 
-  @NonNull
-  public Dice getDice() {
-    return dice;
+  public long getDieId() {
+    return dieId;
   }
 
-  public void setDice(@NonNull Dice dice) {
-    this.dice = dice;
+  public void setDieId(long dieId) {
+    this.dieId = dieId;
+  }
+
+  @NonNull
+  public Die getDie() {
+    return die;
+  }
+
+  public void setDie(@NonNull Die die) {
+    this.die = die;
   }
 }

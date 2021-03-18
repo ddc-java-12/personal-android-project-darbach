@@ -9,13 +9,8 @@ import java.util.Date;
 public class Die {
 
   @PrimaryKey(autoGenerate = true)
-  @ColumnInfo(name = "spin_id")
+  @ColumnInfo(name = "die_id")
   private long id;
-
-  private Date created;
-
-  @ColumnInfo(index = true)
-  private Date updated;
 
   @ColumnInfo(index = true)
   private String name;
@@ -30,6 +25,8 @@ public class Die {
   public void setId(long id) {
     this.id = id;
   }
+
+
 
   public String getName() {
     return name;

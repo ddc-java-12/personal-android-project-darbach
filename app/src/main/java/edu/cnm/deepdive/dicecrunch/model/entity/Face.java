@@ -49,20 +49,20 @@ public class Face {
     this.name = name;
   }
 
-  public long getDiceId() {
+  public long getDieId() {
     return dieId;
   }
 
-  public void setDiceId(long diceId) {
+  public void setDieId(long diceId) {
     this.dieId = diceId;
   }
 
   @NonNull
-  public Die getDice() {
+  public Die getDie() {
     return die;
   }
 
-  public void setDice(@NonNull Die die) {
+  public void setDie(@NonNull Die die) {
     this.die = die;
   }
 }

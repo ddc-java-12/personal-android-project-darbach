@@ -17,6 +17,12 @@ public interface FormulaDao {
   @Insert
   Single<Long> insert(Formula formula);
 
+  @Insert
+  Single<List<Long>> insert(Formula... formulas);
+
+  @Insert
+  Single<List<Long>> insert(Collection<Formula> formulas);
+
   @Update
   Single<Integer> update(Formula formula);
 

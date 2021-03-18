@@ -17,8 +17,20 @@ public interface FaceDao {
   @Insert
   Single<Long> insert(Face face);
 
+  @Insert
+  Single<List<Long>> insert(Face... faces);
+
+  @Insert
+  Single<List<Long>> insert(Collection<Face> faces);
+
   @Update
   Single<Integer> update(Face face);
+
+  @Update
+  Single<Integer> update(Face... faces);
+
+  @Update
+  Single<Integer> update(Collection<Face> faces);
 
   @Delete
   Single<Integer> delete(Face face);

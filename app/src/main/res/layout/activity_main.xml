@@ -1,10 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  tools:context=".MainActivity">
+  xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+  <data>
+    <variable
+      name="viewModel"
+      type="edu.cnm.deepdive.dicecrunch.viewmodel.CalculatorViewModel"/>
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="@dimen/half_static_spacing">
+
+    <EditText
+      android:id="@+id/die_name"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      android:text="@={viewModel.dieName}"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:tooltipText="Hero Quest combat die"/>
+
+    <TextView
+      android:id="@+id/calculator_symbol_label"
+      android:text="Enter a 1- or 2- character sybmol"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      app:layout_constraintTop_toBottomOf="@id/die_name"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/calculator_symbol"
+      android:tooltipText="HQ"/>
+
+    <EditText
+      android:id="@+id/calculator_symbol"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      android:text="@={viewModel.calculatorSymbol}"
+      app:layout_constraintTop_toBottomOf="@id/die_name"
+      app:layout_constraintStart_toEndOf="@id/calculator_symbol_label"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:tooltipText="HQ"/>
+
+    <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      app:layout_constraintGuide_begin="100dp"/>
+
+    <EditText
+      android:id="@+id/face_1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      android:text="@={viewModel.face1}"
+      app:layout_constraintTop_toBottomOf="@id/guideline"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:tooltipText="Skull"/>
+
+    <EditText
+      android:id="@+id/face_2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      android:text="@={viewModel.face2}"
+      app:layout_constraintTop_toBottomOf="@id/face_1"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:tooltipText="Skull"/>
+
+    <EditText
+      android:id="@+id/face_3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      android:text="@={viewModel.face3}"
+      app:layout_constraintTop_toBottomOf="@id/face_2"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:tooltipText="Skull"/>
+
+    <EditText
+      android:id="@+id/face_4"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      android:text="@={viewModel.face4}"
+      app:layout_constraintTop_toBottomOf="@id/face_3"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:tooltipText="White Shield"/>
+
+    <EditText
+      android:id="@+id/face_5"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      android:text="@={viewModel.face5}"
+      app:layout_constraintTop_toBottomOf="@id/face_4"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:tooltipText="White Shield"/>
+
+    <EditText
+      android:id="@+id/face_6"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      android:text="@={viewModel.face6}"
+      app:layout_constraintTop_toBottomOf="@id/face_5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:tooltipText="Black Shield"/>
+
+    <Button
+      android:id="@+id/save"
+      android:text="@string/save_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      android:onClick="@{viewModel::saveDie}"
+      app:layout_constraintTop_toBottomOf="@id/face_6"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+      android:id="@+id/roll"
+      android:text="@string/roll_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      app:layout_constraintTop_toBottomOf="@id/save"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+      android:id="@+id/roll_result"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      app:layout_constraintTop_toBottomOf="@id/roll"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:tooltipText="Skull"/>
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

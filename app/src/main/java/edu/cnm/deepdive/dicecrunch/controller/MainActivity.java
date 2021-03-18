@@ -1,9 +1,10 @@
-package edu.cnm.deepdive.dicecrunch;
+package edu.cnm.deepdive.dicecrunch.controller;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
+import edu.cnm.deepdive.dicecrunch.R;
 import edu.cnm.deepdive.dicecrunch.databinding.ActivityMainBinding;
 import edu.cnm.deepdive.dicecrunch.viewmodel.CalculatorViewModel;
 

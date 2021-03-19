@@ -2,4 +2,6 @@
   <string name="app_name">Dice Crunch</string>
   <string name="save_button">Save</string>
   <string name="roll_button">Roll</string>
+  <string name="sign_in_failure">Unable to sign in with provided credentials.</string>
+  <string name="sign_out">Sign out</string>
 </resources>

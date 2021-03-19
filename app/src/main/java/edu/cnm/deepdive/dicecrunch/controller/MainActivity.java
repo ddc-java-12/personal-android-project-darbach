@@ -4,6 +4,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.ui.AppBarConfiguration;
 import edu.cnm.deepdive.dicecrunch.R;
 import edu.cnm.deepdive.dicecrunch.databinding.ActivityMainBinding;
 import edu.cnm.deepdive.dicecrunch.viewmodel.CalculatorViewModel;
@@ -11,6 +13,8 @@ import edu.cnm.deepdive.dicecrunch.viewmodel.CalculatorViewModel;
 public class MainActivity extends AppCompatActivity {
 
   private CalculatorViewModel viewModel;
+  private AppBarConfiguration appBarConfiguration;
+  private NavController navController;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

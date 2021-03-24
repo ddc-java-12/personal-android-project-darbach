@@ -3,5 +3,23 @@
   <string name="save_button">Save</string>
   <string name="roll_button">Roll</string>
   <string name="sign_in_failure">Unable to sign in with provided credentials.</string>
+  <string name="settings">Settings</string>
   <string name="sign_out">Sign out</string>
+  <string name="title_calculator">Calculator</string>
+  <string name="title_history">History</string>
+  <string name="title_dice_tray">Dice Tray</string>
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="die_face_name_hint">Die face name</string>
+  <string name="title_activity_navigator">NavigatorActivity</string>
+  <string name="navigation_drawer_open">Open navigation drawer</string>
+  <string name="navigation_drawer_close">Close navigation drawer</string>
+  <string name="nav_header_title">Android Studio</string>
+  <string name="nav_header_subtitle">android.studio@android.com</string>
+  <string name="nav_header_desc">Navigation header</string>
+  <string name="action_settings">Settings</string>
+
+  <string name="menu_home">Home</string>
+  <string name="menu_gallery">Gallery</string>
+  <string name="menu_slideshow">Slideshow</string>
 </resources>

@@ -1,0 +1,250 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "7d99e3f9294b59865e65b58c9dafa931",
+    "entities": [
+      {
+        "tableName": "Die",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`die_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `calc_symbol` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "die_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "calc_symbol",
+            "columnName": "calc_symbol",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "die_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Die_name",
+            "unique": false,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Die_name` ON `${TABLE_NAME}` (`name`)"
+          },
+          {
+            "name": "index_Die_calc_symbol",
+            "unique": false,
+            "columnNames": [
+              "calc_symbol"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Die_calc_symbol` ON `${TABLE_NAME}` (`calc_symbol`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Face",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`face_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `die_id` INTEGER NOT NULL, FOREIGN KEY(`die_id`) REFERENCES `Die`(`die_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "face_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dieId",
+            "columnName": "die_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "face_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Face_name",
+            "unique": false,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Face_name` ON `${TABLE_NAME}` (`name`)"
+          },
+          {
+            "name": "index_Face_die_id",
+            "unique": false,
+            "columnNames": [
+              "die_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Face_die_id` ON `${TABLE_NAME}` (`die_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Die",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "die_id"
+            ],
+            "referencedColumns": [
+              "die_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "Formula",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`formula_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `formula` TEXT, `save_path` TEXT, `die_id` INTEGER NOT NULL, FOREIGN KEY(`die_id`) REFERENCES `Die`(`die_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "formula_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "formula",
+            "columnName": "formula",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "save_path",
+            "columnName": "save_path",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dieId",
+            "columnName": "die_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "formula_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Formula_name",
+            "unique": false,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Formula_name` ON `${TABLE_NAME}` (`name`)"
+          },
+          {
+            "name": "index_Formula_die_id",
+            "unique": false,
+            "columnNames": [
+              "die_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Formula_die_id` ON `${TABLE_NAME}` (`die_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Die",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "die_id"
+            ],
+            "referencedColumns": [
+              "die_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "History",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`history_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `name` TEXT, `formula` TEXT, `result` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "history_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created",
+            "columnName": "created",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "formula",
+            "columnName": "formula",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "result",
+            "columnName": "result",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "history_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_History_created",
+            "unique": false,
+            "columnNames": [
+              "created"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_History_created` ON `${TABLE_NAME}` (`created`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7d99e3f9294b59865e65b58c9dafa931')"
+    ]
+  }
+}

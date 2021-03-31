@@ -1,156 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<androidx.constraintlayout.widget.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools">
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  tools:context=".controller.CalculatorFragment">
 
-  <data>
-    <variable
-      name="viewModel"
-      type="edu.cnm.deepdive.dicecrunch.viewmodel.CalculatorViewModel"/>
-  </data>
+  <LinearLayout
+    android:id="@+id/input"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
 
-  <androidx.constraintlayout.widget.ConstraintLayout
+    <ImageButton
+      android:id="@+id/save_formula"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="2"
+      android:layout_margin="@dimen/half_dynamic_spacing"
+      android:scaleType="fitCenter"
+      android:adjustViewBounds="true"
+      android:src="@drawable/ic_save"/>
+
+    <EditText
+      android:id="@+id/formula"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_dynamic_spacing"
+      android:layout_weight="10"/>
+
+  </LinearLayout>
+
+  <TextView
+    android:id="@+id/roll_result"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".controller.CalculatorFragment">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/half_dynamic_spacing"
+    app:layout_constraintTop_toBottomOf="@id/input"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"/>
 
-    <EditText
-      android:id="@+id/die_name"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/half_static_spacing"
-      android:text="@={viewModel.dieName}"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:tooltipText="Hero Quest combat die"/>
-
-    <TextView
-      android:id="@+id/calculator_symbol_label"
-      android:text="Enter a 1- or 2- character sybmol"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/half_static_spacing"
-      app:layout_constraintTop_toBottomOf="@id/die_name"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toStartOf="@id/calculator_symbol"
-      android:tooltipText="HQ"/>
-
-    <EditText
-      android:id="@+id/calculator_symbol"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/half_static_spacing"
-      android:text="@={viewModel.calculatorSymbol}"
-      app:layout_constraintTop_toBottomOf="@id/die_name"
-      app:layout_constraintStart_toEndOf="@id/calculator_symbol_label"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:tooltipText="HQ"/>
-
-    <androidx.constraintlayout.widget.Guideline
-      android:id="@+id/guideline"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal"
-      app:layout_constraintGuide_begin="100dp"/>
-
-    <EditText
-      android:id="@+id/face_1"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/half_static_spacing"
-      android:text="@={viewModel.face1}"
-      app:layout_constraintTop_toBottomOf="@id/guideline"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:tooltipText="Skull"/>
-
-    <EditText
-      android:id="@+id/face_2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/half_static_spacing"
-      android:text="@={viewModel.face2}"
-      app:layout_constraintTop_toBottomOf="@id/face_1"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:tooltipText="Skull"/>
-
-    <EditText
-      android:id="@+id/face_3"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/half_static_spacing"
-      android:text="@={viewModel.face3}"
-      app:layout_constraintTop_toBottomOf="@id/face_2"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:tooltipText="Skull"/>
-
-    <EditText
-      android:id="@+id/face_4"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/half_static_spacing"
-      android:text="@={viewModel.face4}"
-      app:layout_constraintTop_toBottomOf="@id/face_3"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:tooltipText="White Shield"/>
-
-    <EditText
-      android:id="@+id/face_5"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/half_static_spacing"
-      android:text="@={viewModel.face5}"
-      app:layout_constraintTop_toBottomOf="@id/face_4"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:tooltipText="White Shield"/>
-
-    <EditText
-      android:id="@+id/face_6"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/half_static_spacing"
-      android:text="@={viewModel.face6}"
-      app:layout_constraintTop_toBottomOf="@id/face_5"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:tooltipText="Black Shield"/>
+  <GridLayout
+    android:id="@+id/operations"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:alignmentMode="alignBounds"
+    android:columnOrderPreserved="false"
+    android:columnCount="4"
+    android:rowCount="2"
+    app:layout_constraintTop_toBottomOf="@id/roll_result"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
 
     <Button
-      android:id="@+id/save"
-      android:text="@string/save_button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/half_static_spacing"
-      android:onClick="@{viewModel::saveDie}"
-      app:layout_constraintTop_toBottomOf="@id/face_6"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"/>
+      android:id="@+id/drop_lowest"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="Drp Low"/>
+
+    <Button
+      android:id="@+id/drop_highest"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="Drp High"/>
+
+    <Button
+      android:id="@+id/delete"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="&#60;&#60;"/>
+
+    <Button
+      android:id="@+id/clear"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="Clr"/>
+
+    <Button
+      android:id="@+id/right_parenthesis"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="("/>
+
+    <Button
+      android:id="@+id/left_parenthesis"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text=")"/>
+
+    <Button
+      android:id="@+id/custom_die"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="dCust"/>
+
+    <Button
+      android:id="@+id/load_custom_die"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="Load"/>
+
+  </GridLayout>
+
+  <GridLayout
+    android:id="@+id/dice"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:alignmentMode="alignBounds"
+    android:columnOrderPreserved="false"
+    android:columnCount="4"
+    android:rowCount="2"
+    app:layout_constraintTop_toBottomOf="@id/operations"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <Button
+      android:id="@+id/d_four"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="d4"/>
+
+    <Button
+      android:id="@+id/d_six"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="d6"/>
+
+    <Button
+      android:id="@+id/d_eight"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="d8"/>
+
+    <Button
+      android:id="@+id/d_ten"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="d10"/>
+
+    <Button
+      android:id="@+id/d_twelve"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="d12"/>
+
+    <Button
+      android:id="@+id/d_twenty"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="d20"/>
+    <Button
+      android:id="@+id/d_hundred"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="d100"/>
+    <Button
+      android:id="@+id/d_x_sided"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="d?"/>
+
+  </GridLayout>
+
+  <GridLayout
+    android:id="@+id/number_keypad"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:alignmentMode="alignBounds"
+    android:columnOrderPreserved="false"
+    android:columnCount="4"
+    android:rowCount="4"
+    app:layout_constraintTop_toBottomOf="@id/dice"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <Button
+      android:id="@+id/seven"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="7"/>
+
+    <Button
+      android:id="@+id/eight"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="8"/>
+
+    <Button
+      android:id="@+id/nine"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="9"/>
+
+    <Button
+      android:id="@+id/plus"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="+"/>
+
+    <Button
+      android:id="@+id/four"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="4"/>
+
+    <Button
+      android:id="@+id/five"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="5"/>
+    <Button
+      android:id="@+id/six"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="6"/>
+
+    <Button
+      android:id="@+id/minus"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="-"/>
+
+    <Button
+      android:id="@+id/one"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="1"/>
+
+    <Button
+      android:id="@+id/two"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="2"/>
+
+    <Button
+      android:id="@+id/three"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="3"/>
+
+    <Button
+      android:id="@+id/multiply"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="×"/>
+
+    <Button
+      android:id="@+id/zero"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="0"/>
 
     <Button
       android:id="@+id/roll"
-      android:text="@string/roll_button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/half_static_spacing"
-      app:layout_constraintTop_toBottomOf="@id/save"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"/>
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_columnSpan="2"
+      android:text="Roll"/>
 
-    <TextView
-      android:id="@+id/roll_result"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="@dimen/half_static_spacing"
-      app:layout_constraintTop_toBottomOf="@id/roll"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:tooltipText="Skull"/>
+    <Button
+      android:id="@+id/divide"
+      android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:text="÷"/>
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+  </GridLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

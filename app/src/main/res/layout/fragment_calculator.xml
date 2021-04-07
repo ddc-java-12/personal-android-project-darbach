@@ -38,12 +38,24 @@
 
   <TextView
     android:id="@+id/roll_result"
-    android:layout_width="match_parent"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/half_dynamic_spacing"
-    app:layout_constraintTop_toBottomOf="@id/input"
+    app:layout_constraintTop_toTopOf="@id/trace"
+    app:layout_constraintBottom_toBottomOf="@id/trace"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
+    app:layout_constraintEnd_toStartOf="@id/trace"/>
+
+  <ImageButton
+    android:id="@+id/trace"
+    android:layout_width="wrap_content"
+    android:layout_height="24dp"
+    android:src="@drawable/ic_help"
+    android:scaleType="fitCenter"
+    android:adjustViewBounds="true"
+    android:layout_margin="@dimen/half_dynamic_spacing"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/input"/>
 
   <GridLayout
     android:id="@+id/operations"
@@ -53,7 +65,7 @@
     android:columnOrderPreserved="false"
     android:columnCount="4"
     android:rowCount="2"
-    app:layout_constraintTop_toBottomOf="@id/roll_result"
+    app:layout_constraintTop_toBottomOf="@id/trace"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent">
 

@@ -1,21 +1,27 @@
 package edu.cnm.deepdive.dicecrunch.controller;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import edu.cnm.deepdive.dicecrunch.databinding.FragmentCalculatorBinding;
+import edu.cnm.deepdive.dicecrunch.service.Parser;
 import edu.cnm.deepdive.dicecrunch.viewmodel.CalculatorViewModel;
 
 
 public class CalculatorFragment extends Fragment {
 
+  private static final String ROLL_RESULT_FORMAT = "%s = %s";
+
   private CalculatorViewModel calculatorViewModel;
   private FragmentCalculatorBinding binding;
+  private String trace;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -86,15 +92,28 @@ public class CalculatorFragment extends Fragment {
         binding.formula.setText(currentText.substring(0, currentText.length() - 1));
       }
     });
-    binding.clear.setOnClickListener((v) -> binding.formula.setText(""));
+    binding.clear.setOnClickListener((v) -> {
+      binding.formula.setText("");
+      binding.rollResult.setText("");
+    });
     // Roll button
     binding.roll.setOnClickListener((v) -> rollFormula(binding.formula.getText().toString()));
+    binding.trace.setOnClickListener((v) -> showTrace(trace));
   }
 
   private void rollFormula(String formula) {
     // TODO Parse the string into a Deque w/shunting-yard and evaluate w/Recursive Descent Parsing.
-
+    Parser parser = new Parser(formula);
+    binding.rollResult.setText(String.format(ROLL_RESULT_FORMAT, parser.getExpression(), parser.getValue()));
+    trace = parser.getTrace();
   }
 
+  private void showTrace(String trace) {
+    new AlertDialog.Builder(getContext())
+        .setMessage(trace)
+        .setPositiveButton(android.R.string.ok, (dlg, w) -> {})
+        .create()
+        .show();
+  }
 
 }

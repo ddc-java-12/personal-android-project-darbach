@@ -27,7 +27,7 @@
       android:adjustViewBounds="true"
       android:src="@drawable/ic_save"/>
 
-    <EditText
+    <TextView
       android:id="@+id/formula"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
@@ -60,42 +60,42 @@
     <Button
       android:id="@+id/drop_lowest"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="Drp Low"/>
+      android:text="@string/drop_lowest"/>
 
     <Button
       android:id="@+id/drop_highest"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="Drp High"/>
+      android:text="@string/drop_highest"/>
 
     <Button
       android:id="@+id/delete"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="&#60;&#60;"/>
+      android:text="@string/delete"/>
 
     <Button
       android:id="@+id/clear"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="Clr"/>
+      android:text="@string/clear"/>
 
     <Button
       android:id="@+id/right_parenthesis"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="("/>
+      android:text="@string/right_parenthesis"/>
 
     <Button
       android:id="@+id/left_parenthesis"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text=")"/>
+      android:text="@string/left_parenthesis"/>
 
     <Button
       android:id="@+id/custom_die"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="dCust"/>
+      android:text="@string/custom_die"/>
 
     <Button
       android:id="@+id/load_custom_die"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="Load"/>
+      android:text="@string/load_custom_die"/>
 
   </GridLayout>
 
@@ -114,40 +114,40 @@
     <Button
       android:id="@+id/d_four"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="d4"/>
+      android:text="@string/d_four"/>
 
     <Button
       android:id="@+id/d_six"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="d6"/>
+      android:text="@string/d_six"/>
 
     <Button
       android:id="@+id/d_eight"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="d8"/>
+      android:text="@string/d_eight"/>
 
     <Button
       android:id="@+id/d_ten"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="d10"/>
+      android:text="@string/d_ten"/>
 
     <Button
       android:id="@+id/d_twelve"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="d12"/>
+      android:text="@string/d_twelve"/>
 
     <Button
       android:id="@+id/d_twenty"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="d20"/>
+      android:text="@string/d_twenty"/>
     <Button
       android:id="@+id/d_hundred"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="d100"/>
+      android:text="@string/d_hundred"/>
     <Button
       android:id="@+id/d_x_sided"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="d?"/>
+      android:text="@string/d_x_sided"/>
 
   </GridLayout>
 
@@ -164,79 +164,79 @@
     app:layout_constraintEnd_toEndOf="parent">
 
     <Button
-      android:id="@+id/seven"
+      android:id="@+id/num_seven"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="7"/>
+      android:text="@string/num_seven"/>
 
     <Button
-      android:id="@+id/eight"
+      android:id="@+id/num_eight"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="8"/>
+      android:text="@string/num_eight"/>
 
     <Button
-      android:id="@+id/nine"
+      android:id="@+id/num_nine"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="9"/>
+      android:text="@string/num_nine"/>
 
     <Button
-      android:id="@+id/plus"
+      android:id="@+id/num_plus"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="+"/>
+      android:text="@string/num_plus"/>
 
     <Button
-      android:id="@+id/four"
+      android:id="@+id/num_four"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="4"/>
+      android:text="@string/num_four"/>
 
     <Button
-      android:id="@+id/five"
+      android:id="@+id/num_five"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="5"/>
+      android:text="@string/num_five"/>
     <Button
-      android:id="@+id/six"
+      android:id="@+id/num_six"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="6"/>
+      android:text="@string/num_six"/>
 
     <Button
-      android:id="@+id/minus"
+      android:id="@+id/num_minus"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="-"/>
+      android:text="@string/num_minus"/>
 
     <Button
-      android:id="@+id/one"
+      android:id="@+id/num_one"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="1"/>
+      android:text="@string/num_one"/>
 
     <Button
-      android:id="@+id/two"
+      android:id="@+id/num_two"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="2"/>
+      android:text="@string/num_two"/>
 
     <Button
-      android:id="@+id/three"
+      android:id="@+id/num_three"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="3"/>
+      android:text="@string/num_three"/>
 
     <Button
-      android:id="@+id/multiply"
+      android:id="@+id/num_multiply"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="×"/>
+      android:text="@string/num_multiply"/>
 
     <Button
-      android:id="@+id/zero"
+      android:id="@+id/num_zero"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="0"/>
+      android:text="@string/num_zero"/>
 
     <Button
       android:id="@+id/roll"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
       android:layout_columnSpan="2"
-      android:text="Roll"/>
+      android:text="@string/roll"/>
 
     <Button
-      android:id="@+id/divide"
+      android:id="@+id/num_divide"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
-      android:text="÷"/>
+      android:text="@string/num_divide"/>
 
   </GridLayout>
 

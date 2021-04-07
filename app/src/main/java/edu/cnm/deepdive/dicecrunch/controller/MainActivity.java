@@ -28,12 +28,18 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView navView = findViewById(R.id.nav_view);
     // Passing each menu ID as a set of Ids because each
     // menu should be considered as top level destinations.
-    AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+    appBarConfiguration = new AppBarConfiguration.Builder(
         R.id.navigation_calculator, R.id.navigation_history, R.id.navigation_dice_tray)
         .build();
-    NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+    navController = Navigation.findNavController(this, R.id.nav_host_fragment);
     NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
     NavigationUI.setupWithNavController(navView, navController);
+  }
+
+  @Override
+  public boolean onSupportNavigateUp() {
+    return NavigationUI.navigateUp(navController, appBarConfiguration)
+        || super.onSupportNavigateUp();
   }
 
   @Override

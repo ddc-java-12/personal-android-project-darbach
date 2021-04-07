@@ -14,10 +14,9 @@ public class HistoryRepository {
   private final Context context;
   private final HistoryDao historyDao;
 
-  public HistoryRepository(Context context,
-      HistoryDao historyDao) {
+  public HistoryRepository(Context context) {
     this.context = context;
-    this.historyDao = historyDao;
+    historyDao = DiceCrunchDatabase.getInstance().getHistoryDao();
   }
 
   public LiveData<List<History>> getAll() {

@@ -22,4 +22,40 @@
   <string name="menu_home">Home</string>
   <string name="menu_gallery">Gallery</string>
   <string name="menu_slideshow">Slideshow</string>
+
+  <string name="num_zero">0</string>
+  <string name="num_one">1</string>
+  <string name="num_two">2</string>
+  <string name="num_three">3</string>
+  <string name="num_four">4</string>
+  <string name="num_five">5</string>
+  <string name="num_six">6</string>
+  <string name="num_seven">7</string>
+  <string name="num_eight">8</string>
+  <string name="num_nine">9</string>
+
+  <string name="num_plus">+</string>
+  <string name="num_minus">-</string>
+  <string name="num_multiply">*</string>
+
+  <string name="drop_lowest">Drp Low</string>
+  <string name="drop_highest">Drp High</string>
+  <string name="delete"><![CDATA[<<]]></string>
+  <string name="clear">Clr</string>
+  <string name="right_parenthesis">(</string>
+  <string name="left_parenthesis">)</string>
+  <string name="custom_die">dCust</string>
+  <string name="load_custom_die">Load</string>
+  <string name="d_four">d4</string>
+  <string name="d_six">d6</string>
+  <string name="d_eight">d8</string>
+  <string name="d_ten">d10</string>
+  <string name="d_twelve">d12</string>
+  <string name="d_twenty">d20</string>
+  <string name="d_hundred">d100</string>
+  <string name="d_x_sided">d?</string>
+  <string name="num_divide">/</string>
+
+  <string name="roll">Roll</string>
+
 </resources>

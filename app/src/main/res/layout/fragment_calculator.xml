@@ -4,7 +4,7 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="wrap_content"
+  android:layout_height="match_parent"
   tools:context=".controller.CalculatorFragment">
 
   <LinearLayout
@@ -13,9 +13,18 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_vertical"
+    android:background="@color/input_background_color"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent">
+
+    <TextView
+      android:id="@+id/formula"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_dynamic_spacing"
+      android:layout_weight="10"
+      android:background="@color/input_background_color"/>
 
     <ImageButton
       android:id="@+id/save_formula"
@@ -27,86 +36,123 @@
       android:adjustViewBounds="true"
       android:src="@drawable/ic_save"/>
 
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/output"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@color/output_background_color"
+    app:layout_constraintTop_toBottomOf="@id/input"
+    app:layout_constraintStart_toStartOf="@id/input"
+    app:layout_constraintEnd_toEndOf="@id/input">
+
     <TextView
-      android:id="@+id/formula"
+      android:id="@+id/roll_result"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_margin="@dimen/half_dynamic_spacing"
-      android:layout_weight="10"/>
+      android:layout_weight="10"
+      android:background="@color/output_background_color"/>
+
+    <ImageButton
+      android:id="@+id/trace"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="2"
+      android:layout_margin="@dimen/half_dynamic_spacing"
+      android:scaleType="fitCenter"
+      android:adjustViewBounds="true"
+      android:src="@drawable/ic_help"/>
 
   </LinearLayout>
-
-  <TextView
-    android:id="@+id/roll_result"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/half_dynamic_spacing"
-    app:layout_constraintTop_toTopOf="@id/trace"
-    app:layout_constraintBottom_toBottomOf="@id/trace"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toStartOf="@id/trace"/>
-
-  <ImageButton
-    android:id="@+id/trace"
-    android:layout_width="wrap_content"
-    android:layout_height="24dp"
-    android:src="@drawable/ic_help"
-    android:scaleType="fitCenter"
-    android:adjustViewBounds="true"
-    android:layout_margin="@dimen/half_dynamic_spacing"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/input"/>
 
   <GridLayout
     android:id="@+id/operations"
     android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:alignmentMode="alignBounds"
+    android:layout_height="0dp"
+    android:alignmentMode="alignMargins"
     android:columnOrderPreserved="false"
     android:columnCount="4"
     android:rowCount="2"
-    app:layout_constraintTop_toBottomOf="@id/trace"
+    app:layout_constraintTop_toBottomOf="@id/output"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent">
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/dice"
+    app:layout_constraintVertical_weight="1">
 
     <Button
       android:id="@+id/drop_lowest"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/drop_lowest"/>
 
     <Button
       android:id="@+id/drop_highest"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/drop_highest"/>
 
     <Button
       android:id="@+id/delete"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/delete"/>
 
     <Button
       android:id="@+id/clear"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/clear"/>
 
     <Button
       android:id="@+id/right_parenthesis"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/right_parenthesis"/>
 
     <Button
       android:id="@+id/left_parenthesis"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/left_parenthesis"/>
 
     <Button
       android:id="@+id/custom_die"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/custom_die"/>
 
     <Button
       android:id="@+id/load_custom_die"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/load_custom_die"/>
 
   </GridLayout>
@@ -114,51 +160,85 @@
   <GridLayout
     android:id="@+id/dice"
     android:layout_width="0dp"
-    android:layout_height="wrap_content"
+    android:layout_height="0dp"
     android:alignmentMode="alignBounds"
     android:columnOrderPreserved="false"
     android:columnCount="4"
     android:rowCount="2"
     app:layout_constraintTop_toBottomOf="@id/operations"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent">
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/number_keypad"
+    app:layout_constraintVertical_weight="1">
 
     <Button
       android:id="@+id/d_four"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/d_four"/>
 
     <Button
       android:id="@+id/d_six"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/d_six"/>
 
     <Button
       android:id="@+id/d_eight"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/d_eight"/>
 
     <Button
       android:id="@+id/d_ten"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/d_ten"/>
 
     <Button
       android:id="@+id/d_twelve"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/d_twelve"/>
 
     <Button
       android:id="@+id/d_twenty"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/d_twenty"/>
     <Button
       android:id="@+id/d_hundred"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/d_hundred"/>
     <Button
       android:id="@+id/d_x_sided"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/d_x_sided"/>
 
   </GridLayout>
@@ -166,88 +246,150 @@
   <GridLayout
     android:id="@+id/number_keypad"
     android:layout_width="0dp"
-    android:layout_height="wrap_content"
+    android:layout_height="0dp"
     android:alignmentMode="alignBounds"
     android:columnOrderPreserved="false"
     android:columnCount="4"
     android:rowCount="4"
     app:layout_constraintTop_toBottomOf="@id/dice"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent">
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintVertical_weight="2">
 
     <Button
       android:id="@+id/num_seven"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_seven"/>
 
     <Button
       android:id="@+id/num_eight"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_eight"/>
 
     <Button
       android:id="@+id/num_nine"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_nine"/>
 
     <Button
       android:id="@+id/num_plus"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_plus"/>
 
     <Button
       android:id="@+id/num_four"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_four"/>
 
     <Button
       android:id="@+id/num_five"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_five"/>
     <Button
       android:id="@+id/num_six"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_six"/>
 
     <Button
       android:id="@+id/num_minus"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_minus"/>
 
     <Button
       android:id="@+id/num_one"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_one"/>
 
     <Button
       android:id="@+id/num_two"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_two"/>
 
     <Button
       android:id="@+id/num_three"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_three"/>
 
     <Button
       android:id="@+id/num_multiply"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_multiply"/>
 
     <Button
       android:id="@+id/num_zero"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_zero"/>
 
     <Button
       android:id="@+id/roll"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:layout_columnSpan="2"
       android:text="@string/roll"/>
 
     <Button
       android:id="@+id/num_divide"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_columnWeight="1"
+      android:layout_rowWeight="1"
       android:text="@string/num_divide"/>
 
   </GridLayout>

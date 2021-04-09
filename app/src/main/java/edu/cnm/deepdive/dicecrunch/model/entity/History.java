@@ -15,13 +15,15 @@ public class History {
 
   @NonNull
   @ColumnInfo(index = true)
-  private Date created;
+  private Date created = new Date();
 
   private String name;
 
   private String formula;
 
   private String result;
+
+  private String trace;
 
   public long getId() {
     return id;
@@ -63,4 +65,13 @@ public class History {
   public void setResult(String result) {
     this.result = result;
   }
+
+  public String getTrace() {
+    return trace;
+  }
+
+  public void setTrace(String trace) {
+    this.trace = trace;
+  }
+
 }

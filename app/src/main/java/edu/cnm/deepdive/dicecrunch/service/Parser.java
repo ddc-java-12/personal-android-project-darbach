@@ -3,18 +3,15 @@ package edu.cnm.deepdive.dicecrunch.service;
 import edu.cnm.deepdive.dicecrunch.model.type.Operand;
 import edu.cnm.deepdive.dicecrunch.model.type.Operator;
 import edu.cnm.deepdive.dicecrunch.model.type.ScalarOperand;
+import edu.cnm.deepdive.dicecrunch.model.type.VectorOperand;
 import java.util.Deque;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class Parser {
-
-  private final static Map<String, Operator> symbolMap = new HashMap<>();
 
   private final static Pattern LITERAL_PATTERN =
       Pattern.compile("^\\s*(\\d+)\\s*(.*)$"); //[A-Z]{1,2}
@@ -23,25 +20,31 @@ public class Parser {
   private final static Operator[] operators = Operator.values();
 
   private final String expression;
+  private final List<int[]> rolls;
 
   private int value;
-  private String trace;
+  private List<String> trace;
 
   public Parser(String expression) {
     this.expression = expression;
     evaluate();
+    rolls = new LinkedList<>();
   }
 
   public int getValue() {
     return value;
   }
 
-  public String getTrace() {
+  public List<String> getTrace() {
     return trace;
   }
 
   public String getExpression() {
     return expression;
+  }
+
+  public List<int[]> getRolls() {
+    return rolls;
   }
 
   /* Accept a dice formula as a postfix operator string and output a dice roll result string. Uses
@@ -54,7 +57,7 @@ public class Parser {
   private void evaluate() {
 
     StringBuilder work = new StringBuilder(expression);
-    List<String> trace = new LinkedList<>();
+    trace = new LinkedList<>();
     Deque<Operand> operandStack = new LinkedList<>();
     Deque<Operator> operatorStack = new LinkedList<>();
 
@@ -87,7 +90,8 @@ public class Parser {
           while (!operatorStack.isEmpty()
               && operatorStack.peekFirst() != Operator.LEFT_PARENTHESIS
               && operatorStack.peekFirst().getPriority() >= operator.getPriority()) {
-            operandStack.addFirst(processOperator(operatorStack.removeFirst(), operandStack, trace));
+            operandStack
+                .addFirst(processOperator(operatorStack.removeFirst(), operandStack, trace));
           }
           operatorStack.addFirst(operator);
           continue mainLoop;
@@ -117,10 +121,10 @@ public class Parser {
       operandStack.addFirst(processOperator(operatorStack.removeFirst(), operandStack, trace));
     }
     value = operandStack.removeFirst().value();
-    this.trace = String.join("\n", trace);
   }
 
-  private Operand processOperator(Operator operator, Deque<Operand> operandStack, List<String> trace) {
+  private Operand processOperator(Operator operator, Deque<Operand> operandStack,
+      List<String> trace) {
     Operand[] operands = Stream
         .generate(operandStack::removeFirst)
         .limit(operator.getOperands())
@@ -128,6 +132,12 @@ public class Parser {
     Operand result = operator.evaluate(operands);
     trace.add(String.format("%s = %s", operator.trace(operands), result));
     return result;
+  }
+
+  private void push(Operand operand) {
+    if (operand instanceof VectorOperand) {
+      rolls.add(((VectorOperand) operand).getValues());
+    }
   }
 
 }

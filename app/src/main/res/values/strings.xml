@@ -38,9 +38,9 @@
   <string name="num_minus">-</string>
   <string name="num_multiply">*</string>
 
-  <string name="drop_lowest">Drp Low</string>
-  <string name="drop_highest">Drp High</string>
-  <string name="delete"><![CDATA[<<]]></string>
+  <string name="drop_lowest">Drp Lo</string>
+  <string name="drop_highest">Drp Hi</string>
+  <string name="delete">Dlt</string>
   <string name="clear">Clr</string>
   <string name="right_parenthesis">(</string>
   <string name="left_parenthesis">)</string>
@@ -57,5 +57,14 @@
   <string name="num_divide">/</string>
 
   <string name="roll">Roll</string>
+  <string name="formula_auto_roll_key">formula_auto_roll</string>
+  <string name="formula_auto_roll_title">Saved formula auto-roll</string>
+  <string name="formula_auto_roll_summary">When a saved formula is tapped, automatically roll and see the results.</string>
+  <string name="formula_auto_roll_default">true</string>
+  <string name="roll_destination_title">Roll destination</string>
+  <string name="roll_destination_summary">Choose which screen will open when a roll is performed.</string>
+
+  <string name="pref_default">calculator</string>
+  <string name="long_title_settings">Dice Crunch Settings</string>
 
 </resources>

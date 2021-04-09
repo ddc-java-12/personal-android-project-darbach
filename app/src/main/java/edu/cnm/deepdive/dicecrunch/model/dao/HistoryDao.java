@@ -30,7 +30,7 @@ public interface HistoryDao {
   @Delete
   Single<Integer> delete(Collection<History> history);
 
-  @Query("SELECT * FROM History ORDER BY created ASC")
+  @Query("SELECT * FROM History ORDER BY created DESC")
   LiveData<List<History>> selectAll();
 
   @Transaction

@@ -29,6 +29,6 @@
 <!--    android:layout_gravity="bottom|end"-->
 <!--    app:srcCompat="@android:drawable/ic_dialog_email"/>-->
 
-  <include layout="@layout/content_main"/>
+  <include layout="@layout/activity_main"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

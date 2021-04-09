@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="pref_values">
+    <item>navigation_calculator</item>
+    <item>navigation_history</item>
+    <item>navigation_dice_tray</item>
+  </string-array>
+  <string-array name="pref_options">
+    <item>Calculator</item>
+    <item>History</item>
+    <item>Dice tray</item>
+  </string-array>
+</resources>

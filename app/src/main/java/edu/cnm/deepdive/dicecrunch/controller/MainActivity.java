@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.content_main);
+    setContentView(R.layout.activity_main);
     BottomNavigationView navView = findViewById(R.id.nav_view);
     // Passing each menu ID as a set of Ids because each
     // menu should be considered as top level destinations.
@@ -55,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
       case R.id.sign_out:
         signOut();
         break;
-//      case R.id.settings:
-//        navController.navigate(R.id.navigation_settings);
-//        break;
+      case R.id.settings:
+        navController.navigate(R.id.navigation_settings);
+        break;
       default:
         handled = super.onOptionsItemSelected(item);
     }

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "7d99e3f9294b59865e65b58c9dafa931",
+    "identityHash": "de700195f4c9cc3fce0154c85641d5bb",
     "entities": [
       {
         "tableName": "Die",
@@ -189,7 +189,7 @@
       },
       {
         "tableName": "History",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`history_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `name` TEXT, `formula` TEXT, `result` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`history_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `name` TEXT, `formula` TEXT, `result` TEXT, `trace` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -220,6 +220,12 @@
             "columnName": "result",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "trace",
+            "columnName": "trace",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -244,7 +250,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7d99e3f9294b59865e65b58c9dafa931')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'de700195f4c9cc3fce0154c85641d5bb')"
     ]
   }
 }

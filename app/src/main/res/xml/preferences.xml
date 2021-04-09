@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <SwitchPreference
+    android:key="@string/formula_auto_roll_key"
+    android:title="@string/formula_auto_roll_title"
+    android:summary="@string/formula_auto_roll_summary"
+    android:defaultValue="@string/formula_auto_roll_default"/>
+
+  <ListPreference
+    android:key="roll_destination_key"
+    android:title="@string/roll_destination_title"
+    android:summary="@string/roll_destination_summary"
+    android:entryValues="@array/pref_values"
+    android:entries="@array/pref_options"
+    android:defaultValue="navigation_calculator"/>
+
+</PreferenceScreen>

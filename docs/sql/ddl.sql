@@ -41,7 +41,9 @@ CREATE TABLE IF NOT EXISTS `History`
     `created`    INTEGER                           NOT NULL,
     `name`       TEXT,
     `formula`    TEXT,
-    `result`     TEXT
+    `result`     TEXT,
+    `trace`      TEXT
 );
 
 CREATE INDEX IF NOT EXISTS `index_History_created` ON `History` (`created`);
+

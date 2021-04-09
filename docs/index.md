@@ -92,13 +92,15 @@ Users will be able to:
 ### Readiness
 
 * Creating, saving, and deleting Custom Die is not yet implemented.
+* Saving and deleting formula from a folder structure is not yet implemented. 
 * The Dice Tray screen is partially implemented. It does not yet show individual animated dice, but
   only the roll result and trace as a placeholder.
 * There is no input validation or error handling for invalid formulae--the app simply crashes.
+* The app also crashes if no formula has been Rolled, and the user taps the Trace (?) button.
 
 ### Aesthetic
 
-* I feel that the app looks a little boring with too white and grey. Adding colored icons and a few
+* I feel that the app looks a little boring with too much white and grey. Adding colored icons and a few
   muted colors, along with some small highlight colors, could help to liven up the interface.
 * The formula input and output TextViews seem like they are taking up too much screen real estate,
   relative to the size of the text. They should probably be compressed, and the font size increased

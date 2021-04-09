@@ -87,6 +87,11 @@ Users will be able to:
 * Create a "Share" button to send a formula or result to contacts through text or email. 
 * Integration with a virtual tabletop like Roll20 or Fantasy Grounds.
 
+## Current State of the App
+
+* Creating, saving, and deleting Custom Die is not yet implemented.
+* The Dice Tray screen is partially implemented. It does not yet show the 
+
 ## License
 
 Copyright 2021 Daniel Arbach

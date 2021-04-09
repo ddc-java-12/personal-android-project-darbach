@@ -30,9 +30,6 @@ public class DiceTrayFragment extends Fragment {
       Bundle savedInstanceState) {
     // Inflate the layout for this fragment.
     diceTrayBinding = FragmentDiceTrayBinding.inflate(inflater, container, false);
-    // An adapter for populating the Dice Tray ListView.
-    diceTrayAdapter = new ArrayAdapter<String>(
-        getContext(), diceTrayItemBinding.diceTrayRoll.getId(), calculatorViewModel.getTrace().getValue());
     return diceTrayBinding.getRoot();
   }
 
@@ -46,6 +43,11 @@ public class DiceTrayFragment extends Fragment {
         (formula) -> diceTrayBinding.formula.setText(formula));
     calculatorViewModel.getResult().observe(lifecycleOwner,
         (result) -> diceTrayBinding.rollResult.setText(result));
+    calculatorViewModel.getTrace().observe(lifecycleOwner, (trace) -> {
+      ArrayAdapter<String> adapter = new ArrayAdapter<>(
+          getContext(), android.R.layout.simple_list_item_1, trace);
+      diceTrayBinding.trace.setAdapter(adapter);
+    });
     setButtonClickListeners();
     getLifecycle().addObserver(calculatorViewModel);
   }

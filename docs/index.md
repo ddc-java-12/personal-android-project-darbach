@@ -89,8 +89,31 @@ Users will be able to:
 
 ## Current State of the App
 
+### Readiness
+
 * Creating, saving, and deleting Custom Die is not yet implemented.
-* The Dice Tray screen is partially implemented. It does not yet show the 
+* The Dice Tray screen is partially implemented. It does not yet show individual animated dice, but
+  only the roll result and trace as a placeholder.
+* There is no input validation or error handling for invalid formulae--the app simply crashes.
+
+### Aesthetic
+
+* I feel that the app looks a little boring with too white and grey. Adding colored icons and a few
+  muted colors, along with some small highlight colors, could help to liven up the interface.
+* The formula input and output TextViews seem like they are taking up too much screen real estate,
+  relative to the size of the text. They should probably be compressed, and the font size increased
+  to help utilize some of the excess whitespace.
+  
+### Functional Stretch Goals
+
+From most to least utility/simple to implement:
+
+* Dark and light themes
+* Generate a more coherent result string rather than the messy-looking trace, perhaps using regex
+  to replace dice roll expressions with an array of rolled results (e.g. 3d6 might yield [4, 1, 3])
+* Implement a custom dice screen for saving, creating, and deleting.
+* Input validation to prevent malformed formula expressions from being entered.
+
 
 ## License
 

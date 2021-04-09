@@ -120,7 +120,7 @@
       android:text="@string/clear"/>
 
     <Button
-      android:id="@+id/right_parenthesis"
+      android:id="@+id/left_parenthesis"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
       android:layout_width="0dp"
       android:layout_height="0dp"
@@ -129,7 +129,7 @@
       android:text="@string/right_parenthesis"/>
 
     <Button
-      android:id="@+id/left_parenthesis"
+      android:id="@+id/right_parenthesis"
       android:layout_margin="@dimen/quarter_dynamic_spacing"
       android:layout_width="0dp"
       android:layout_height="0dp"

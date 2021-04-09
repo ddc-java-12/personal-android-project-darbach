@@ -26,7 +26,6 @@ public class CalculatorViewModel extends AndroidViewModel implements LifecycleOb
   private final MutableLiveData<List<String>> trace;
   private final DieRepository dieRepository;
   private final HistoryRepository historyRepository;
-  // TODO: Put parser in here so dice tray and calculator can both use it.
 
   public CalculatorViewModel(@NonNull Application application) {
     super(application);
@@ -48,8 +47,6 @@ public class CalculatorViewModel extends AndroidViewModel implements LifecycleOb
   public LiveData<List<String>> getTrace() {
     return trace;
   }
-
-  // TODO Use these methods to manage the view in case of screen rotate.
 
   public void clearFormula() {
     this.formula.setValue("");

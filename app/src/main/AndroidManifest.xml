@@ -21,7 +21,8 @@
         </activity>
         <activity
           android:name=".controller.MainActivity"
-          android:label="Dice Crunch">
+          android:label="Dice Crunch"
+          android:screenOrientation="portrait">
         </activity>
     </application>
 

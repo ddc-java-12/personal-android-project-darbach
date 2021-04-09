@@ -15,6 +15,10 @@ import edu.cnm.deepdive.dicecrunch.R;
 import edu.cnm.deepdive.dicecrunch.service.GoogleSignInService;
 import edu.cnm.deepdive.dicecrunch.viewmodel.CalculatorViewModel;
 
+/**
+ * The main controller to set up the Navigation menu, and the Options menu. This is the landing point
+ * after Google Sign In is successful.
+ */
 public class MainActivity extends AppCompatActivity {
 
   private CalculatorViewModel viewModel;

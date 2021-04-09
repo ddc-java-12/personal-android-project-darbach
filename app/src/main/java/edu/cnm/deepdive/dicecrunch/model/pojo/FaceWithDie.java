@@ -5,6 +5,9 @@ import androidx.room.Relation;
 import edu.cnm.deepdive.dicecrunch.model.entity.Die;
 import edu.cnm.deepdive.dicecrunch.model.entity.Face;
 
+/**
+ * Plain Old Java Object (POJO) representing the relationship between the Face and Die tables.
+ */
 public class FaceWithDie extends Face {
 
   @Relation(

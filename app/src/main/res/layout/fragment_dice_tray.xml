@@ -71,8 +71,8 @@
 
   <ListView
     android:id="@+id/trace"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
     app:layout_constraintTop_toBottomOf="@id/tray_output"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintStart_toStartOf="parent"

@@ -8,6 +8,9 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import java.util.Deque;
 
+/**
+ * Database entity corresponding to the Formula table.
+ */
 @Entity(
     foreignKeys = {
         @ForeignKey(

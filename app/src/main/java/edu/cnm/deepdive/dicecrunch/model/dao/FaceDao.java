@@ -11,6 +11,9 @@ import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Data access object for the ORM to manage the Face entity.
+ */
 @Dao
 public interface FaceDao {
 

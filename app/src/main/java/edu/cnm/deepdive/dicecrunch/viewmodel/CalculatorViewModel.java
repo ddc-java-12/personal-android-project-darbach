@@ -1,22 +1,21 @@
 package edu.cnm.deepdive.dicecrunch.viewmodel;
 
 import android.app.Application;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.navigation.Navigation;
-import androidx.preference.PreferenceManager;
-import edu.cnm.deepdive.dicecrunch.R;
 import edu.cnm.deepdive.dicecrunch.model.entity.History;
 import edu.cnm.deepdive.dicecrunch.service.DieRepository;
 import edu.cnm.deepdive.dicecrunch.service.HistoryRepository;
 import edu.cnm.deepdive.dicecrunch.service.Parser;
 import java.util.List;
 
+/**
+ * Manages the state of the app for the user interface. This class allows the formulas and results
+ * to be populated and shared across the different fragments.
+ */
 public class CalculatorViewModel extends AndroidViewModel implements LifecycleObserver {
 
   private static final String ROLL_RESULT_FORMAT = "%s = %s";
@@ -27,6 +26,13 @@ public class CalculatorViewModel extends AndroidViewModel implements LifecycleOb
   private final DieRepository dieRepository;
   private final HistoryRepository historyRepository;
 
+
+  /**
+   * Creates an instance of the ViewModel. Information it keeps track of includes the formula and
+   * results.
+   *
+   * @param application
+   */
   public CalculatorViewModel(@NonNull Application application) {
     super(application);
     dieRepository = new DieRepository(application);
@@ -36,27 +42,62 @@ public class CalculatorViewModel extends AndroidViewModel implements LifecycleOb
     trace = new MutableLiveData<>();
   }
 
+  /**
+   * Returns the literal version of the formula currently being displayed.
+   *
+   * @return
+   */
   public LiveData<String> getFormula() {
     return formula;
   }
 
+  /**
+   * Returns the rolled result of the formula.
+   *
+   * @return
+   */
   public LiveData<String> getResult() {
     return result;
   }
 
+  /**
+   * Returns the evaulation at step of parsing the equation.
+   *
+   * @return
+   */
   public LiveData<List<String>> getTrace() {
     return trace;
   }
 
+  /**
+   * Return the history of all dice rolls and their results.
+   *
+   * @return
+   */
+  public LiveData<List<History>> getHistory() {
+    return historyRepository.getAll();
+  }
+
+  /**
+   * Erases everything from the formula entry field.
+   */
   public void clearFormula() {
     this.formula.setValue("");
     this.result.setValue("");
   }
 
+  /**
+   * Adds text to the end of the formula entry field.
+   *
+   * @param fragment The new text to be appended to the existing formula entry field.
+   */
   public void appendToFormula(String fragment) {
     this.formula.setValue(this.formula.getValue() + fragment);
   }
 
+  /**
+   * Deletes a single character from the end of the formula entry field.
+   */
   public void backspace() {
     String formula = this.formula.getValue();
     if (!formula.isEmpty()) {
@@ -64,9 +105,14 @@ public class CalculatorViewModel extends AndroidViewModel implements LifecycleOb
     }
   }
 
+  /**
+   * Parses and evaluates the dice equation from the formula entry field. The results are stored
+   * within this ViewModel's state and the database.
+   */
   public void evaluate() {
     Parser parser = new Parser(this.formula.getValue());
-    this.result.setValue(String.format(ROLL_RESULT_FORMAT, parser.getExpression(), parser.getValue()));
+    this.result
+        .setValue(String.format(ROLL_RESULT_FORMAT, parser.getExpression(), parser.getValue()));
     this.trace.setValue(parser.getTrace());
     History history = new History();
     history.setTrace(String.join("\n", parser.getTrace()));
@@ -76,9 +122,5 @@ public class CalculatorViewModel extends AndroidViewModel implements LifecycleOb
         .save(history)
         .subscribe();
   }
-
-  public LiveData<List<History>> getHistory() {
-    return historyRepository.getAll();
-  };
 
 }

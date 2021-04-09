@@ -1,0 +1,9 @@
+edu.cnm.deepdive.dicecrunch
+edu.cnm.deepdive.dicecrunch.adapter
+edu.cnm.deepdive.dicecrunch.controller
+edu.cnm.deepdive.dicecrunch.model.dao
+edu.cnm.deepdive.dicecrunch.model.entity
+edu.cnm.deepdive.dicecrunch.model.pojo
+edu.cnm.deepdive.dicecrunch.model.type
+edu.cnm.deepdive.dicecrunch.service
+edu.cnm.deepdive.dicecrunch.viewmodel

@@ -17,6 +17,9 @@ import edu.cnm.deepdive.dicecrunch.model.entity.History;
 import edu.cnm.deepdive.dicecrunch.service.DiceCrunchDatabase.Converters;
 import java.util.Date;
 
+/**
+ * The ORM class to manage persistence. Only available as a singleton.
+ */
 @Database(
     entities = {Die.class, Face.class, Formula.class, History.class},
     version = 1
@@ -28,10 +31,20 @@ public abstract class DiceCrunchDatabase extends RoomDatabase {
 
   private static Application context;
 
+  /**
+   * Provide the ORM with an application context.
+   *
+   * @param context
+   */
   public static void setContext(Application context) {
     DiceCrunchDatabase.context = context;
   }
 
+  /**
+   * Get the singleton instance of the ORM.
+   *
+   * @return
+   */
   public static DiceCrunchDatabase getInstance() {
     return InstanceHolder.INSTANCE;
   }

@@ -7,6 +7,9 @@ import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+/**
+ * Database entity corresponding to the Face table.
+ */
 @Entity(
     foreignKeys = {
         @ForeignKey(

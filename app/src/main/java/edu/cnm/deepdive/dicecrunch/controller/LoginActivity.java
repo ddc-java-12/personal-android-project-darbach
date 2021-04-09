@@ -12,6 +12,9 @@ import edu.cnm.deepdive.dicecrunch.R;
 import edu.cnm.deepdive.dicecrunch.databinding.ActivityLoginBinding;
 import edu.cnm.deepdive.dicecrunch.service.GoogleSignInService;
 
+/**
+ * Provides Google Sign In logic.
+ */
 public class LoginActivity extends AppCompatActivity {
 
   private static final int LOGIN_REQUEST_CODE = 2037149261;

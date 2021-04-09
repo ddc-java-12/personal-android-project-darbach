@@ -6,6 +6,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import java.util.Date;
 
+/**
+ * Database entity corresponding to the History table.
+ */
 @Entity
 public class History {
 

@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.dicecrunch.service;
 
+import edu.cnm.deepdive.dicecrunch.model.type.DieRoll;
 import edu.cnm.deepdive.dicecrunch.model.type.Operand;
 import edu.cnm.deepdive.dicecrunch.model.type.Operator;
 import edu.cnm.deepdive.dicecrunch.model.type.ScalarOperand;
@@ -17,10 +18,14 @@ public class Parser {
       Pattern.compile("^\\s*(\\d+)\\s*(.*)$"); //[A-Z]{1,2}
   private final static Pattern RIGHT_PARENTHESIS_PATTERN =
       Pattern.compile("^\\s*\\)\\s*(.*)$");
+  private final static Pattern DIE_ROLLS_PATTERN =
+      Pattern.compile("\\d+d\\d+");
+  private final static Pattern RESULT_VECTORS_PATTERN =
+      Pattern.compile("\\[(\\d+)(,\\s*\\d+)*\\]");
   private final static Operator[] operators = Operator.values();
 
   private final String expression;
-  private final List<int[]> rolls;
+  private final List<DieRoll> dieRolls;
 
   private int value;
   private List<String> trace;
@@ -28,7 +33,7 @@ public class Parser {
   public Parser(String expression) {
     this.expression = expression;
     evaluate();
-    rolls = new LinkedList<>();
+    dieRolls = new LinkedList<>();
   }
 
   public int getValue() {
@@ -43,8 +48,8 @@ public class Parser {
     return expression;
   }
 
-  public List<int[]> getRolls() {
-    return rolls;
+  public List<DieRoll> getDieRolls() {
+    return dieRolls;
   }
 
   /* Accept a dice formula as a postfix operator string and output a dice roll result string. Uses
@@ -130,13 +135,16 @@ public class Parser {
         .limit(operator.getOperands())
         .toArray(Operand[]::new);
     Operand result = operator.evaluate(operands);
+    if (operator == Operator.DICE_ROLL) {
+//      addToDieRollsList(operands[0].value(), ((VectorOperand) result).getValues());
+    }
     trace.add(String.format("%s = %s", operator.trace(operands), result));
     return result;
   }
 
-  private void push(Operand operand) {
-    if (operand instanceof VectorOperand) {
-      rolls.add(((VectorOperand) operand).getValues());
+  private void addToDieRollsList(int faces, int[] results) {
+    for (int i = 0; i < results.length; i++) {
+      dieRolls.add(new DieRoll(results[i], faces));
     }
   }
 

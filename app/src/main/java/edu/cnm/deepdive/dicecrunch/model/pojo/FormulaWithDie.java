@@ -5,6 +5,9 @@ import androidx.room.Relation;
 import edu.cnm.deepdive.dicecrunch.model.entity.Die;
 import edu.cnm.deepdive.dicecrunch.model.entity.Formula;
 
+/**
+ * Plain Old Java Object (POJO) representing the relationship between the Formula and Die tables.
+ */
 public class FormulaWithDie extends Formula {
 
   @Relation(

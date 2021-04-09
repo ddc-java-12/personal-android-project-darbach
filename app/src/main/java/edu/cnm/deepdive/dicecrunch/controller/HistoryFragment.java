@@ -12,10 +12,13 @@ import edu.cnm.deepdive.dicecrunch.adapter.HistoryAdapter;
 import edu.cnm.deepdive.dicecrunch.databinding.FragmentHistoryBinding;
 import edu.cnm.deepdive.dicecrunch.viewmodel.CalculatorViewModel;
 
+/**
+ * Functionality to control the History UI fragment.
+ */
 public class HistoryFragment extends Fragment {
 
   private FragmentHistoryBinding binding;
-  private CalculatorViewModel viewModel;
+  private CalculatorViewModel calculatorViewModel;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,13 +31,13 @@ public class HistoryFragment extends Fragment {
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    viewModel = new ViewModelProvider(this).get(CalculatorViewModel.class);
-    viewModel.getHistory().observe(getViewLifecycleOwner(), (historyOfRolls) -> {
+    calculatorViewModel = new ViewModelProvider(this).get(CalculatorViewModel.class);
+    calculatorViewModel.getHistory().observe(getViewLifecycleOwner(), (historyOfRolls) -> {
       HistoryAdapter adapter = new HistoryAdapter(getContext(), historyOfRolls, (formula) -> {
         // TODO Invoke parser.
-        viewModel.clearFormula();
-        viewModel.appendToFormula(formula);
-        viewModel.evaluate();
+        calculatorViewModel.clearFormula();
+        calculatorViewModel.appendToFormula(formula);
+        calculatorViewModel.evaluate();
       });
       binding.rolls.setAdapter(adapter);
     });

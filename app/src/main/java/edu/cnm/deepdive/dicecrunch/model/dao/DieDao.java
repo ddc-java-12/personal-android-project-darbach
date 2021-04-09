@@ -13,6 +13,9 @@ import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Data access object for the ORM to manage the Die entity.
+ */
 @Dao
 public interface DieDao {
 
@@ -38,5 +41,4 @@ public interface DieDao {
   @Query("SELECT * FROM Die WHERE die_id = :dieId")
   LiveData<DieWithFaces> selectById(long dieId);
 
-  // TODO selectById for DieWithFormula. Different method signature?
 }

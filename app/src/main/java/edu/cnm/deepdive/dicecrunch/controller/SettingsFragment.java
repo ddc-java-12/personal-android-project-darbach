@@ -4,6 +4,9 @@ import android.os.Bundle;
 import androidx.preference.PreferenceFragmentCompat;
 import edu.cnm.deepdive.dicecrunch.R;
 
+/**
+ * Fragment to create the Settings screen.
+ */
 public class SettingsFragment extends PreferenceFragmentCompat {
 
   @Override

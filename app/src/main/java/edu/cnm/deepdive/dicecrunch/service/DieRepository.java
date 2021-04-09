@@ -16,6 +16,9 @@ import io.reactivex.schedulers.Schedulers;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * A repository to manage persistence for the Die entity and database table.
+ */
 public class DieRepository {
 
   private final Context context;
@@ -23,6 +26,11 @@ public class DieRepository {
   private final FaceDao faceDao;
   private final FormulaDao formulaDao;
 
+  /**
+   * Create a DieRepository.
+   *
+   * @param context The application context.
+   */
   public DieRepository(Context context) {
     this.context = context;
     DiceCrunchDatabase database = DiceCrunchDatabase.getInstance();
@@ -31,14 +39,31 @@ public class DieRepository {
     formulaDao = database.getFormulaDao();
   }
 
+  /**
+   * Return all the saved custom dice.
+   *
+   * @return
+   */
   public LiveData<List<Die>> getAll() {
     return dieDao.selectAll();
   }
 
+  /**
+   * Return all the saved custom dice joined with the table of their faces.
+   *
+   * @param dieId The unique identifier for a specific custom die.
+   * @return
+   */
   public LiveData<DieWithFaces> get(long dieId) {
     return dieDao.selectById(dieId);
   }
 
+  /**
+   * Persist a custom die and it's faces to the databse.
+   *
+   * @param dieWithFaces A POJO of the new die to be saved.
+   * @return A ReactiveX task.
+   */
   public Single<DieWithFaces> save(DieWithFaces dieWithFaces) {
     if (dieWithFaces.getId() > 0) {
       // Update
@@ -68,7 +93,12 @@ public class DieRepository {
     }
   }
 
-  // TODO Ask if null Foreign Key will cause a problem.
+  /**
+   * Persist a custom die and the formulae it is used in to the databse.
+   *
+   * @param die A POJO of the die to be saved.
+   * @return A ReactiveX task.
+   */
   public Single<DieWithFormulas> save(DieWithFormulas die) {
     if (die.getId() > 0) {
       // Update
@@ -98,6 +128,12 @@ public class DieRepository {
     }
   }
 
+  /**
+   * Remove a custom Die from the database.
+   *
+   * @param die The Die object being deleted.
+   * @return A ReactiveX task.
+   */
   public Completable delete(Die die) {
     return (
         (die.getId() == 0)

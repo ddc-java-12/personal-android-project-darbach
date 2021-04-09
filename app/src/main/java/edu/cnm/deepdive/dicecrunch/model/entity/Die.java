@@ -5,6 +5,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import java.util.Date;
 
+/**
+ * Database entity corresponding to the Die table.
+ */
 @Entity
 public class Die {
 

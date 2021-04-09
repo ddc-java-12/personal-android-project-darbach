@@ -11,6 +11,23 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/**
+ * A representation of an operator, useful for parsing and evaluating a dice formula expression.
+ * For this expression language, the following operators are included:
+ *
+ *  - Plus (+) for addition.
+ *  - Minus (-) for subtraction.
+ *  - Multiply (*) for multiplication.
+ *  - Divide (/) for division.
+ *  - Drop Highest (dh) for dropping the highest value from rolling a set of dice.
+ *  - Drop Lowest (dl) for dopping the lowest value from rolling a set of dice.
+ *  - Dice Roll (d) for expressing rolling rolling 1 or more polyhedral dice.
+ *  - Left Parenthesis ( useful for parsing algorithms, such as Shunting-Yard.
+ *
+ *  The members of this enum provides operator precedence priorities, symbol text, regex expressions,
+ *  each operator's arity (number of operands it requires), and methods to evaluate retrieve a
+ *  trace String from the operation..
+ */
 public enum Operator {
 
   PLUS(10, "+", "\\+", 2) {
@@ -147,6 +164,14 @@ public enum Operator {
   private final Pattern regex;
   private final int operands;
 
+  /**
+   * The constructor used by the enum to populate internal state.
+   *
+   * @param priority The arithmetic precedence.
+   * @param symbol The text representation of the operand for display.
+   * @param regex A regex expression to match the operator.
+   * @param operands The operator's arity (number of operands it requires).
+   */
   Operator(int priority, String symbol, String regex, int operands) {
     this.priority = priority;
     this.symbol = symbol;
@@ -154,28 +179,65 @@ public enum Operator {
     this.operands = operands;
   }
 
+  /**
+   * Provide a random number generator for dice rolling operations.
+   *
+   * @param rng
+   */
   public static void setRng(Random rng) {
     Operator.rng = rng;
   }
 
+  /**
+   * Return the arithmetic precedence of the operator.
+   *
+   * @return
+   */
   public int getPriority() {
     return this.priority;
   }
 
+  /**
+   * Return the text symbol of the operator used for display.
+   *
+   * @return
+   */
   public String getSymbol() {
     return symbol;
   }
 
+  /**
+   * Return the regex expression used for locating the operator in the formula expression.
+   *
+   * @return
+   */
   public Pattern getRegex() {
     return regex;
   }
 
+  /**
+   * Return the operator's arity (number of operands it requires).
+   *
+   * @return
+   */
   public int getOperands() {
     return operands;
   }
 
+  /**
+   * Performs the operation on the provided set of operands.
+   *
+   * @param operands The number of operands must match the operator's arity.
+   * @return The evaluated result.
+   */
   public abstract Operand evaluate(Operand... operands);
 
+  /**
+   * Return a text representation of formula expression used for display.
+   *
+   * @param operands
+   * @return
+   */
   public abstract String trace(Operand... operands);
 
 }

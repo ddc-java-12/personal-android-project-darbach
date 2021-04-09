@@ -9,9 +9,8 @@ import io.reactivex.schedulers.Schedulers;
 import java.security.SecureRandom;
 
 /**
- * Initializes (in the {@link #onCreate()} method) application-level resources. This class
- * <strong>must</strong> be referenced in {@code AndroidManifest.xml}, or it will not be loaded and
- * used by the Android system.
+ * The main entry point for the application. Launches GoogleSignIn and sets up the application
+ * context.
  */
 public class DiceCrunchApplication extends Application {
 

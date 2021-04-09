@@ -11,6 +11,9 @@ import edu.cnm.deepdive.dicecrunch.databinding.ItemHistoryBinding;
 import edu.cnm.deepdive.dicecrunch.model.entity.History;
 import java.util.List;
 
+/**
+ * Manages populating the scrollable history of dice rolls.
+ */
 public class HistoryAdapter extends RecyclerView.Adapter<Holder> {
 
   private final List<History> historyOfRolls;
@@ -18,6 +21,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<Holder> {
   private final Context context;
   private final RerollHandler handler;
 
+  /**
+   * Creates a HistoryAdapter.
+   *
+   * @param context Access the current state of the application.
+   * @param historyOfRolls A list of all dice formula and their results.
+   * @param handler
+   */
   public HistoryAdapter(@NonNull Context context, List<History> historyOfRolls,
       RerollHandler handler) {
     this.context = context;
@@ -62,14 +72,16 @@ public class HistoryAdapter extends RecyclerView.Adapter<Holder> {
     private void showTrace(String trace) {
       new AlertDialog.Builder(context)
           .setMessage(trace)
-          .setPositiveButton(android.R.string.ok, (dlg, w) -> {
-          })
+          .setPositiveButton(android.R.string.ok, (dlg, w) -> {})
           .create()
           .show();
     }
 
   }
 
+  /**
+   *
+   */
   public interface RerollHandler {
 
     void reroll(String expression);

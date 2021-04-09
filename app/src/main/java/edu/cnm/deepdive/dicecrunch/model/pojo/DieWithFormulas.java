@@ -6,6 +6,9 @@ import edu.cnm.deepdive.dicecrunch.model.entity.Formula;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Plain Old Java Object (POJO) representing the relationship between the Die and Formula tables.
+ */
 public class DieWithFormulas extends Die {
 
   @Relation(

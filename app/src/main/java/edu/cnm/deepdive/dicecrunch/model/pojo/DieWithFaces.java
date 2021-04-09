@@ -6,6 +6,9 @@ import edu.cnm.deepdive.dicecrunch.model.entity.Face;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Plain Old Java Object (POJO) representing the relationship between the Die and Face tables.
+ */
 public class DieWithFaces extends Die {
 
   @Relation(

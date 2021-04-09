@@ -16,6 +16,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * A ViewModel to manage the state and business logic of creating, editing and deleting
+ * a custom die.
+ */
 public class CustomDieViewModel extends AndroidViewModel implements LifecycleObserver {
 
   public final MutableLiveData<String> dieName;
@@ -31,6 +35,12 @@ public class CustomDieViewModel extends AndroidViewModel implements LifecycleObs
   private final DieRepository dieRepository;
   private final MutableLiveData<Throwable> throwable;
 
+  /**
+   * Create an instance of CustomDieViewModel to save the state of all associated information for
+   * a custom die.
+   *
+   * @param application
+   */
   public CustomDieViewModel(@NonNull Application application) {
     super(application);
     dieName = new MutableLiveData<>("Hero Quest combat die");
@@ -48,14 +58,25 @@ public class CustomDieViewModel extends AndroidViewModel implements LifecycleObs
     dieRepository = new DieRepository(application);
   }
 
+  /**
+   * Return the fully, descriptive name of the custom die.
+   *
+   * @return
+   */
   public MutableLiveData<String> getDieName() {
     return dieName;
   }
 
+  /**
+   * Return the 1- or 2-character calculator text symbol for the custom die.
+   *
+   * @return
+   */
   public MutableLiveData<String> getCalculatorSymbol() {
     return calculatorSymbol;
   }
 
+  // TODO Replace these methods with a single method to handle a dynamic number of faces.
   public MutableLiveData<String> getFace1() {
     return face1;
   }
@@ -84,6 +105,11 @@ public class CustomDieViewModel extends AndroidViewModel implements LifecycleObs
     return throwable;
   }
 
+  /**
+   * Save a custom die in the ViewModel's state.
+   *
+   * @param view The ViewModel being used.
+   */
   public void saveDie(View view) {
     DieWithFaces die = new DieWithFaces();
     List<Face> faces = die.getFaces();
@@ -108,8 +134,4 @@ public class CustomDieViewModel extends AndroidViewModel implements LifecycleObs
     this.throwable.postValue(throwable);
   }
 
-  public void rollDice() {
-    int dieThrow = rng.nextInt(6);
-
-  }
 }

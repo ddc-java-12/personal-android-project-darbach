@@ -46,7 +46,6 @@ public class CalculatorFragment extends Fragment {
     calculatorViewModel = new ViewModelProvider(getActivity()).get(CalculatorViewModel.class);
     getLifecycle().addObserver(calculatorViewModel);
     LifecycleOwner lifecycleOwner = getViewLifecycleOwner();
-    // FIXME Formula is not being stored correctly in the ViewModel. NoSuchElementException, Parser 123
     calculatorViewModel.getFormula().observe(lifecycleOwner,
         (formula) -> binding.formula.setText(formula));
     calculatorViewModel.getResult().observe(lifecycleOwner,

@@ -2,7 +2,7 @@
 title: Copyright Notices
 description: List of all licenses for project and support libraries
 menu: Notice
-order: 40
+order: 60
 ---
 
 ## Dice Crunch
